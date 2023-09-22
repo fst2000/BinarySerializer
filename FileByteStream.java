@@ -18,7 +18,7 @@ public class FileByteStream implements ByteStream
     @Override
     public void read(ByteReader reader)
     {
-        int c = reader.read();
+        read(reader.read());
     }
     
 }
