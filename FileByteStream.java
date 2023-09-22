@@ -5,20 +5,28 @@ import java.io.FileReader;
 public class FileByteStream implements ByteStream
 {
     File file;
-    FileReader reader;
+    FileReader fileReader;
     public FileByteStream(File file)
     {
         this.file = file;
         try
         {
-            reader = new FileReader(file);
+            fileReader = new FileReader(file);
         }
         catch (Exception e){System.out.println(e);}
     }
     @Override
     public void read(ByteReader reader)
     {
-        read(reader.read());
+        try
+        {
+            byte b = (byte)0;
+            if((b = (byte)fileReader.read()) != -1)reader.read(b);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
     }
     
 }
