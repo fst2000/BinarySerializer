@@ -6,6 +6,8 @@ public class Program
     {
         File inputFile = new File("input.txt");
         File outputFile = new File("output.txt");
-        new FileFloatStream(inputFile).read(f -> System.out.println(f));
+        new FloatVector3Stream(new FileFloatStream(inputFile)).read(v3 ->
+            v3.accept((x, y, z) ->
+                System.out.println(x + ", " + y + ", " + z)));
     }   
 }
