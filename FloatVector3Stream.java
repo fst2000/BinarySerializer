@@ -14,7 +14,7 @@ public class FloatVector3Stream implements Vector3Stream
         floatStream.read(f ->
         {
             floats[i % 3] = f;
-            if((i - 1) % 3 == 0 & i != 0) reader.read(new FloatVector3(floats[0], floats[1], floats[2]));
+            if((i + 1) % 3 == 0 & i != 0) reader.read(new FloatVector3(floats[0], floats[1], floats[2]));
             i++;
         });
     }
