@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class FileFloatStream implements FloatStream
@@ -10,6 +11,7 @@ public class FileFloatStream implements FloatStream
         try
         {
             s = new Scanner(new FileInputStream(file));
+            s.useLocale(Locale.US);
         }
         catch (Throwable e){System.out.println(e);}
     }
@@ -18,12 +20,13 @@ public class FileFloatStream implements FloatStream
     {
         try
         {
-            while(s.hasNextFloat()) reader.read(s.nextFloat());
+            if(s.hasNextFloat()) reader.read(s.nextFloat());
         }
         catch (Exception e)
         {
             System.out.println(e);
         }
+        finally {s.close();}
     }
     
 }
