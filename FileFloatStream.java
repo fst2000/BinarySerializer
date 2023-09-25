@@ -1,9 +1,11 @@
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class FileFloatStream implements FloatStream
+public class FileFloatStream implements FloatStream, Closeable
 {
     Scanner s;
     public FileFloatStream(File file)
@@ -26,7 +28,10 @@ public class FileFloatStream implements FloatStream
         {
             System.out.println(e);
         }
-        finally {s.close();}
+    }
+    @Override
+    public void close() throws IOException {
+        s.close();
     }
     
 }

@@ -13,5 +13,4 @@ public class FloatVector3Stream implements Stream<Vector3>
                 floatStream.read(z ->
                     reader.read(new FloatVector3(x, y, z)))));
     }
-    
 }
