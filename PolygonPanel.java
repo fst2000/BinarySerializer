@@ -11,6 +11,7 @@ public class PolygonPanel extends JPanel
     public PolygonPanel(Stream<Vector2> stream)
     {
         this.stream = stream;
+        setSize(500, 500);
         setBackground(Color.black);
         setPreferredSize(new Dimension(500, 500));
         setBackground(Color.black);
