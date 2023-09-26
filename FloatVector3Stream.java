@@ -1,4 +1,4 @@
-public class FloatVector3Stream implements Stream<Vector3>
+public class FloatVector3Stream implements InputStream<Vector3>
 {
     FloatStream floatStream;
     public FloatVector3Stream(FloatStream floatStream) 

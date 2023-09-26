@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 
 public class PolygonPanel extends JPanel
 {
-    Stream<Vector2> stream;
-    public PolygonPanel(Stream<Vector2> stream)
+    InputStream<Vector2> stream;
+    public PolygonPanel(InputStream<Vector2> stream)
     {
         this.stream = stream;
         setSize(500, 500);
