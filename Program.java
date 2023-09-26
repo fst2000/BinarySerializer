@@ -14,10 +14,10 @@ public class Program
         //File outputFile = new File("output.txt");
         JFrame frame = new JFrame();
         frame.setSize(500, 500);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);;
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FileFloatStream fileStream = new FileFloatStream(inputFile);
         JPanel panel = new PolygonPanel(new FloatVector2Stream(fileStream));
         frame.add(panel);
+        frame.setVisible(true);
     }   
 }

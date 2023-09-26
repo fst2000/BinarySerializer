@@ -14,7 +14,6 @@ public class PolygonPanel extends JPanel
         setSize(500, 500);
         setBackground(Color.black);
         setPreferredSize(new Dimension(500, 500));
-        setBackground(Color.black);
     }
     @Override
     public void paint(Graphics g)
