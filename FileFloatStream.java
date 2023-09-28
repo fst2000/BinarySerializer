@@ -8,8 +8,11 @@ import java.util.Scanner;
 public class FileFloatStream implements FloatStream
 {
     Scanner s;
+    boolean isEnded;
+    File file;
     public FileFloatStream(File file)
     {
+        this.file = file;
         try
         {
             s = new Scanner(new FileInputStream(file));
@@ -22,9 +25,19 @@ public class FileFloatStream implements FloatStream
     {
         try
         {
+            if(isEnded)
+            {
+                s = new Scanner(file);
+                isEnded = false;
+            }
             if(s.hasNextFloat())
             {
                 reader.read(s.nextFloat());
+            }
+            else
+            {
+                s.close();
+                isEnded = true;
             }
         }
         catch (Exception e)
