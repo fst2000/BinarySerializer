@@ -21,19 +21,19 @@ public class PolygonPanel extends JPanel
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(Color.red);
         g2d.setStroke(new BasicStroke(2));
-        StreamReader<Vector2> reader = new StreamReader<>()
-        {
-            public void read(Vector2 v)
-            {
-                v.accept((x, y) ->
-                {
-                    g2d.drawLine(0, 0, (int)x, (int)y);
-                    System.out.println(x + " " + y);
-                });
-                stream.read(this);
-            }    
-        };
-        stream.read(reader);
+        // StreamReader<Vector2> reader = new StreamReader<>()
+        // {
+        //     public void read(Vector2 v)
+        //     {
+        //         v.accept((x, y) ->
+        //         {
+        //             g2d.drawLine(0, 0, (int)x, (int)y);
+        //             System.out.println(x + " " + y);
+        //         });
+        //         stream.read(this);
+        //     }    
+        // };
+        // stream.read(reader);
     }
     
 }

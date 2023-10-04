@@ -1,4 +1,4 @@
 public interface InputStream<T>
 {
-    void read(StreamReader<T> reader);    
+    void read(BufferStreamReader<T> reader);    
 }

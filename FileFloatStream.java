@@ -1,48 +1,28 @@
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class FileFloatStream implements FloatStream
+public class FileFloatStream implements InputStream<Float>
 {
-    Scanner s;
-    boolean isEnded;
-    File file;
+    Buffer<Float> buffer;
     public FileFloatStream(File file)
     {
-        this.file = file;
         try
         {
-            s = new Scanner(new FileInputStream(file));
+            ArrayList<Float> floats = new ArrayList<>(); 
+            Scanner s = new Scanner(new FileInputStream(file));
             s.useLocale(Locale.US);
+            while(s.hasNextFloat()) floats.add(s.nextFloat());
+            s.close();
+            buffer = new ArrayBuffer<>(floats);
         }
         catch (Throwable e){System.out.println(e);}
     }
     @Override
-    public void read(FloatReader reader)
+    public void read(BufferStreamReader<Float> reader)
     {
-        try
-        {
-            if(isEnded)
-            {
-                s = new Scanner(file);
-                isEnded = false;
-            }
-            if(s.hasNextFloat())
-            {
-                reader.read(s.nextFloat());
-            }
-            else
-            {
-                s.close();
-                isEnded = true;
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e);
-        }
+        reader.read(buffer, new BufferStream<>(buffer, 0));
     }
 }

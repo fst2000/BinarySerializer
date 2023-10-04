@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.colorchooser.DefaultColorSelectionModel;
 public class Program
 {
     public static void main(String[] args)
@@ -16,8 +15,8 @@ public class Program
         frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         FileFloatStream fileStream = new FileFloatStream(inputFile);
-        JPanel panel = new PolygonPanel(new FloatVector2Stream(fileStream));
-        frame.add(panel);
         frame.setVisible(true);
+        // JPanel panel = new PolygonPanel(new FloatVector2Stream(fileStream));
+        // frame.add(panel);
     }   
 }
